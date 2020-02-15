@@ -3,7 +3,7 @@ node {
 		notify('Job Started')
 
 		stage('Git-Checkout') {
-			git 'https://github.com/Ssri1056249/pipe-Terraform.git'
+			git 'https://github.com/sri1056249/pipe-Terraform.git'
 		}
 
 
