@@ -1,15 +1,17 @@
 variable "key_name" {
-  default = "meghanamumbai"
+  default = "srinivas"
 }
 
 variable "pvt_key" {
-  default = "/root/.ssh/mkey.pem"
+  default = "/home/mtadminnuvepro/.ssh/srinivas.pem"
 }
 
-variable "us-east-zones" {
-  default = ["us-east-1a", "us-east-1b"]
-}
 
 variable "sg-id" {
-  default = "sg-0eb024eb164eb86c0"
+  default = "sg-0195c94726e86b385"
 }
+
+variable "region" {
+  default = "us-west-2"
+  }
+
