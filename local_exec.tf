@@ -39,7 +39,7 @@ resource "null_resource" "remote-exec-1" {
 resource "null_resource" "ansible-main" {
 provisioner "local-exec" {
   command = <<EOT
-        sleep 100;
+        
         > inventory;
         echo "[web]"| tee -a inventory;
         export ANSIBLE_HOST_KEY_CHECKING=False;
