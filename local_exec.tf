@@ -39,7 +39,6 @@ provisioner "local-exec" {
   command = <<EOT
         sleep 100;
         > inventory;
-        > index.html
         echo "[inventory]"| tee -a inventory;
         export ANSIBLE_HOST_KEY_CHECKING=False;
         echo "${aws_instance.backend.public_ip}" | tee -a inventory;
