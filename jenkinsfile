@@ -3,7 +3,7 @@ node {
 		notify('Job Started')
 
 		stage('Git-Checkout') {
-			git 'https://github.com/sri1056249/pipe-Terraform.git'
+			git 'https://github.com/natam369/AnsibleTerraform.git'
 		}
 
 stage('Download package from JFrog') {
@@ -11,8 +11,8 @@ stage('Download package from JFrog') {
 			def downloadSpec = """{
             "files": [
             {
-                "pattern": "example-repo-local/BookingProblem-0.0.1-SNAPSHOT.war",
-                "target": "./BookingProblem.war"
+                "pattern": "project/bikeshop-0.0.1-SNAPSHOT.war",
+                "target": "./capstoneproject.war"
             }
             ]
             }"""
@@ -27,7 +27,7 @@ stage('Download package from JFrog') {
 
 		
 		/*stage('Deployment into production'){
-			sh label: 'terraform', script: 'ansible-playbook  --key /home/mtadminnuvepro/.ssh/srinivas.pem -i inventory ./web-playbook.yaml -u ubuntu -v'
+			sh label: 'terraform', script: 'ansible-playbook  --key /home/mtadminnuvepro/.ssh/bike.pem -i inventory ./web-playbook.yaml -u ubuntu -v'
 		}*/
 
 
@@ -42,7 +42,7 @@ stage('Download package from JFrog') {
 
 def notify(status){
 	emailext (
-			to: "bsrinivas064@gmail.com",
+			to: "natammegasachin369@gmail.com",
 			subject: "${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
 			body: """<p>${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
 	<p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>""",
