@@ -1,4 +1,3 @@
-
 variable "key_name" {
   default = "bikekey"
 }
@@ -7,8 +6,8 @@ variable "pvt_key" {
   default = "/root/.ssh/bike.pem"
 }
 
-variable "region" {
-  default = "us-west-1"
+variable "us-east-zones" {
+  default = ["us-west-1a", "us-west-1b"]
 }
 
 variable "sg-id" {
