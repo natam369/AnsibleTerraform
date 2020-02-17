@@ -38,11 +38,11 @@ resource "null_resource" "ansible-main" {
 provisioner "local-exec" {
   command = <<EOT
         sleep 100;
-        > inventory;
-        echo "[inventory]"| tee -a inventory;
+        > jenkins-ci.ini;
+        echo "[jenkins-ci]"| tee -a jenkins-ci.ini;
         export ANSIBLE_HOST_KEY_CHECKING=False;
-        echo "${aws_instance.backend.public_ip}" | tee -a inventory;
-        ansible-playbook  --key=${var.pvt_key} -i inventory web-playbook.yaml -u ubuntu -v
+        echo "${aws_instance.backend.public_ip}" | tee -a jenkins-ci.ini;
+        ansible-playbook  --key=${var.pvt_key} -i jenkins-ci.ini bikeplaybook.yaml -u ubuntu -v
     EOT
 }
 }
