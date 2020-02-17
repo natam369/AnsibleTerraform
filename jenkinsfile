@@ -25,9 +25,9 @@ node {
 			server.download(downloadSpec)
 		}
 
-		stage('Deployment into production'){
+	/*	stage('Deployment into production'){
 			sh label: 'terraform', script: 'ansible-playbook  --key=${var.pvt_key} -i inventory ./web-playbook.yaml -u ubuntu -v'
-		}
+		}*/
 
 
 		notify('Job Completed')
