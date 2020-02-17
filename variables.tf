@@ -1,17 +1,16 @@
+
 variable "key_name" {
-  default = "srinivas"
+  default = "bikekey"
 }
 
 variable "pvt_key" {
-  default = "/home/mtadminnuvepro/.ssh/srinivas.pem"
-}
-
-
-variable "sg-id" {
-  default = "sg-0195c94726e86b385"
+  default = "/root/.ssh/bike.pem"
 }
 
 variable "region" {
   default = "us-west-2"
-  }
+}
 
+variable "sg-id" {
+  default = "sg-0f05c1b1af97a1acc"
+}
