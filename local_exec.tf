@@ -39,10 +39,11 @@ provisioner "local-exec" {
   command = <<EOT
         sleep 100;
         > inventory;
-        echo "[web]"| tee -a inventory;
+        > index.html
+        echo "[inventory]"| tee -a inventory;
         export ANSIBLE_HOST_KEY_CHECKING=False;
         echo "${aws_instance.backend.public_ip}" | tee -a inventory;
-        ansible-playbook  --key /root/.ssh/bike.pem -i inventory web-playbook.yaml -u ubuntu -v
+        ansible-playbook  --key=${var.pvt_key} -i inventory web-playbook.yaml -u ubuntu -v
     EOT
 }
 }
