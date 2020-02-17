@@ -8,7 +8,7 @@ variable "pvt_key" {
 }
 
 variable "region" {
-  default = "us-west-2"
+  default = "us-west-1"
 }
 
 variable "sg-id" {
