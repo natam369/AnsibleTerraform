@@ -6,14 +6,12 @@ terraform {
 }
 
 provider "aws" {
- 
-  shared_credentials_file = "/home/mtadminnuvepro/.aws/credentials"
-  region = "${var.region}"
-  
-}
+  region = "us-west-1"
+  }
 
 resource "aws_instance" "backend" {
-  ami                    = "ami-02d0ea44ae3fe9561"
+  
+  ami                    = "ami-094f0176b0d009d9f"
   instance_type          = "t2.micro"
   key_name               = "${var.key_name}"
   vpc_security_group_ids = ["${var.sg-id}"]
@@ -44,7 +42,6 @@ provisioner "local-exec" {
         echo "[web]"| tee -a inventory;
         export ANSIBLE_HOST_KEY_CHECKING=False;
         echo "${aws_instance.backend.public_ip}" | tee -a inventory;
-        ansible-playbook  --key /home/mtadminnuvepro/.ssh/srinivas.pem -i inventory web-playbook.yaml -u ubuntu -v
     EOT
 }
 }
