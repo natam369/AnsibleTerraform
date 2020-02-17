@@ -12,10 +12,22 @@ node {
 			sh label: 'terraform', script: 'sudo /bin/terraform  apply -input=false -auto-approve'
 		}
 
-		stage('Downstream Build -- Ansible Deployment'){
-			build 'pipe-Ansi'
+		stage('Download package from JFrog') {
+			def server= Artifactory.server 'Artifactory'
+			def downloadSpec = """{
+            "files": [
+            {
+                "pattern": "example-repo-local/BookingProblem-0.0.1-SNAPSHOT.war",
+                "target": "./BookingProblem.war"
+            }
+            ]
+            }"""
+			server.download(downloadSpec)
 		}
 
+		stage('Deployment into production'){
+			sh label: 'terraform', script: 'ansible-playbook -i /home/mtadminnuvepro/.jenkins/workspace/pipe-Terraform/inventory -u ubuntu --key /home/mtadminnuvepro/.ssh/srinivas.pem ./web-playbook.yaml'
+		}
 
 
 		notify('Job Completed')
