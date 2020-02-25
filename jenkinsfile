@@ -25,12 +25,6 @@ stage('Download package from JFrog') {
 			sh label: 'terraform', script: 'sudo /bin/terraform  apply -input=false -auto-approve'
 		}
 
-		
-		/*stage('Deployment into production'){
-			sh label: 'terraform', script: 'ansible-playbook  --key /home/mtadminnuvepro/.ssh/bike.pem -i inventory ./web-playbook.yaml -u ubuntu -v'
-		}*/
-
-
 		notify('Job Completed')
 	} catch (err) {
 		notify("Error ${err}")
