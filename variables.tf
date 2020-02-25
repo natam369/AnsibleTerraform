@@ -1,9 +1,9 @@
 variable "key_name" {
-  default = "bikekey"
+  default = "wwe"
 }
 
 variable "pvt_key" {
-  default = "/root/.ssh/bike.pem"
+  default = "/root/.ssh/coe.pem"
 }
 
 variable "us-east-zones" {
@@ -11,5 +11,5 @@ variable "us-east-zones" {
 }
 
 variable "sg-id" {
-  default = "sg-0f05c1b1af97a1acc"
+  default = "sg-0e6cb204a0842565d"
 }
